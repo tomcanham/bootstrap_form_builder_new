@@ -1,12 +1,4 @@
 module BootstrapFormBuilder
-  require 'active_support/concern'
-  require 'action_view/helpers/capture_helper'
-  require 'action_view/helpers/url_helper'
-  require 'action_view/helpers/sanitize_helper'
-  require 'action_view/helpers/text_helper'
-  require 'action_view/helpers/tag_helper'
-  require 'action_view/helpers/form_helper'
-
   class StringList < Array
     def initialize(*args)
       super()
@@ -235,5 +227,3 @@ module BootstrapFormBuilder
     end
   end
 end
-
-# ActionView::Base.default_form_builder = BootstrapFormBuilder::FormBuilder
