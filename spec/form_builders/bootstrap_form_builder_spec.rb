@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'action_view/helpers/form_options_helper'
-require 'action_view/buffers'
 
 include ActionView::Helpers::FormOptionsHelper
 
