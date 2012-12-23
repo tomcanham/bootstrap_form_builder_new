@@ -1,0 +1,3 @@
+--drb
+--format documentation --color
+--format html -o "tmp/rspec.html"
