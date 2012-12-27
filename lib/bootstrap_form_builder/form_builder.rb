@@ -156,6 +156,10 @@ module BootstrapFormBuilder
       control_group(*args) { super }
     end
 
+    def text_area(*args)
+      control_group(*args) { super }
+    end
+
     def actions()
       @template.content_tag(:div, class: 'form-actions') do
         yield
