@@ -11,7 +11,14 @@ end
 
 describe BootstrapFormBuilder::FormBuilder do
   before do
-    @object = mock_model("Profile", username: 'big love', gender: 'transman', password: 'password', age: 42, email: 'foo@bar.com', awesome: true)
+    @object = mock_model("Profile", 
+      username: 'big love', 
+      gender: 'transman', 
+      password: 'password', 
+      age: 42, 
+      email: 'foo@bar.com', 
+      awesome: true,
+      content: 'This is some content.')
     @builder = BootstrapFormBuilder::FormBuilder.new(:profile, @object, MockTemplate.new, {}, nil)
   end
 
@@ -127,6 +134,21 @@ describe BootstrapFormBuilder::FormBuilder do
     it_behaves_like("a control group with a control")
     it_behaves_like("a control group with a label")
     it_behaves_like("an input with a default value")
+  end
+
+  describe "#text_area" do
+    let(:content) { @builder.text_area(:content) }
+    let(:attribute_name) { :content }
+    let(:control_selector) { "textarea" }
+    let(:default_value) { "This is some content" }
+
+    it_behaves_like("a control group with a control")
+    it_behaves_like("a control group with a label")
+    it "should have the default value as content" do
+      within(control_selector) do
+        expect(scope).to have_content(default_value)
+      end
+    end
   end
 
   describe "#select" do
